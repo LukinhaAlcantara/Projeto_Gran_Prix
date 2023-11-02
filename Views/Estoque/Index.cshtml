@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Gran_Prix.Models.EstoqueModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-5 mt-2">
+    <h1>Estoque</h1>
+
+    <a class="btn mx-5" asp-controller="Estoque" asp-action="Create"><i class="bi bi-person-plus" style="font-size:xx-large"></i></a>
+
+</div>
+<hr />
+
+<div class="container">
+
+    <table id="Estoque" class="table table-dark table-striped mt-5">
+
+        <br />
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Quantidade</th>
+                <th scope="col">Fornecedor</th>
+                <th scope="col">Código</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+
+                @foreach (var produtos in Model)
+
+                {
+                    <tr>
+                        <td scope="row">@produtos.Nome</td>
+                        <td scope="row">@produtos.Preco.ToString("C")</td>
+                        <td scope="row">@produtos.Quantidade</td>
+                        <td scope="row">@produtos.Fornecedor_Id</td>
+                        <td scope="row">@produtos.Codigo</td>
+                        <td>
+                            <!--EDITAR-->
+                            <a class="btn text-white mx-2" asp-action="Edit"
+                               asp-route-id="@produtos.Id"><i class="bi bi-pencil"></i></a>
+                            <!--EXCLUIR-->
+                            <a class="btn text-white mx-2" asp-action="Delete"
+                               asp-route-id="@produtos.Id"><i class="bi bi-x-lg"></i></a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

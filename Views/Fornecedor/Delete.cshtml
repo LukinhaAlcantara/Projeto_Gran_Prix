@@ -1,0 +1,33 @@
+﻿@model Gran_Prix.Models.FornecedorModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="mb-5 text-center text-black">
+    <h1 class="text-black">Excluir Funcionario</h1>
+</div>
+<hr />
+
+<div style="margin-left:35%">
+    <dl class="row">
+        <dt class="col-sm-2 fs-5">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class="col-sm-10 fs-5">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+    </dl>
+</div>
+
+<hr />
+
+<div style="margin-left:35%">
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <div class="d-flex gap-3 mt-5">
+            <input type="submit" value="Delete" class="btn btn-danger" style="width:20%" />
+            <a class="btn btn-outline-secondary" style="width:20%" asp-action="Index">Back</a>
+        </div>
+    </form>
+</div>

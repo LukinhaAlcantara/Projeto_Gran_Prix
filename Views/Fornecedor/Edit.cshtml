@@ -1,0 +1,48 @@
+﻿@model Gran_Prix.Models.FornecedorModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="mb-5 text-center text-black">
+    <h1 class="text-black">Editar Fornecedores</h1>
+</div>
+<hr />
+<div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-xl-2 col-sm-2">
+            <!--LADO ESQUERDO-->
+        </div>
+        <div class="col-xl-8 col-sm-8 bg-dark p-5" id="teste">
+            <!--CENTRO-->
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-12 form-group text-white">
+                    <label asp-for="Nome" class="control-label"></label>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="d-flex gap-3 mt-5">
+                    <input type="submit" value="Save" class="btn btn-outline-success w-50" placeholder="Adicionar" />
+                    <a class="btn btn-outline-danger w-50" asp-action="Index">Back</a>
+
+                </div>
+            </form>
+        </div>
+        <div class="col-xl-2 col-sm-2">
+            <!--LADO DIREITO-->
+        </div>
+    </div>
+</div>
+
+<style>
+    #teste {
+        opacity: 0.8;
+        border-radius: 15px;
+    }
+</style>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

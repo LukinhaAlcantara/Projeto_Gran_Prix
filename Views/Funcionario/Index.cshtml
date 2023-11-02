@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Gran_Prix.Models.FuncionarioModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-5 mt-2">
+    <h1>Funcionarios</h1>
+
+    <a class="btn mx-5" asp-controller="Funcionario" asp-action="Create"><i class="bi bi-person-plus" style="font-size:xx-large"></i></a>
+
+</div>
+
+<hr />
+
+<div class="container">
+
+    <table id="Funcionario" class="table table-dark table-striped mt-5">
+
+        <br />
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Código</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+
+                @foreach (var funcioanrio in Model)
+
+                {
+                    <tr>
+                        <td scope="row">@funcioanrio.Nome</td>
+                        <td scope="row">@funcioanrio.Telefone</td>
+                        <td scope="row">@funcioanrio.CPF</td>
+                        <td scope="row">@funcioanrio.Codigo</td>
+                        <td>
+                            <!--EDITAR-->
+                            <a class="btn text-white mx-2" asp-action="Edit"
+                               asp-route-id="@funcioanrio.Id"><i class="bi bi-pencil"></i></a>
+                            <!--EXCLUIR-->
+                            <a class="btn text-white mx-2" asp-action="Delete"
+                               asp-route-id="@funcioanrio.Id"><i class="bi bi-x-lg"></i></a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+@*<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CPF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Codigo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CPF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Codigo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+*@
