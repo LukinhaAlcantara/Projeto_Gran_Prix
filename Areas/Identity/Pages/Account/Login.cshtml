@@ -1,0 +1,101 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<hr />
+<h1 class="text-center">Login</h1>
+<hr />
+
+<br />
+
+<div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-xl-3 col-sm-3">
+            <!--LADO ESQUERDO-->
+        </div>
+        <div class="col-xl-6 col-sm-6 bg-dark p-5" id="teste">
+            <!--CENTRO-->
+            <form id="account" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="mb-3 text-white">
+                    <label asp-for="Input.Email" for="exampleInputEmail1" class="form-label">Email</label>
+                    <input asp-for="Input.Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3 text-white">
+                    <label asp-for="Input.Password" for="exampleInputPassword1" class="form-label">Senha</label>
+                    <input asp-for="Input.Password" type="password" class="form-control" id="exampleInputPassword1">
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="mb-3 form-check text-white">
+                    <input asp-for="Input.RememberMe" type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label asp-for="Input.RememberMe" class="form-check-label" for="exampleCheck1">Lembrar de mim</label>
+                </div>
+                <div class="d-flex gap-3 mt-5">
+                    <input type="submit" id="login-submit" class="btn btn-outline-success w-50" value="Login" />
+                    <a class="btn btn-outline-danger w-50" asp-action="Index">Back</a>
+                </div>
+            </form>
+        </div>
+        <div class="col-xl-3 col-sm-3">
+            <!--LADO DIREITO-->
+        </div>
+    </div>
+</div>
+
+<style>
+    #teste {
+        opacity: 0.8;
+        border-radius: 15px;
+    }
+</style>
+
+
+@*<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form id="account" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-floating">
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                    <label asp-for="Input.Email" class="form-label"></label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-floating">
+                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
+                    <label asp-for="Input.Password" class="form-label"></label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div>
+                    <div class="checkbox">
+                        <label asp-for="Input.RememberMe" class="form-label">
+                            <input class="form-check-input" asp-for="Input.RememberMe" />
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                <div>
+                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                </div>
+                <div>
+                    <p>
+                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                    </p>
+                    <p>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                    </p>
+                    <p>
+                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                    </p>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>*@
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
