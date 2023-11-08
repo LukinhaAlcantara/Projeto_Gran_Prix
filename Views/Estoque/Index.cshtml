@@ -4,19 +4,16 @@
     ViewData["Title"] = "Index";
 }
 
-<div class="d-flex justify-content-between align-items-center mb-5 mt-2">
-    <h1>Estoque</h1>
+<div class="d-flex justify-content-between align-items-center mb-5 mt-2 border-bottom">
+    <h1 class="container">Estoque</h1>
 
-    <a class="btn mx-5" asp-controller="Estoque" asp-action="Create"><i class="bi bi-person-plus" style="font-size:xx-large"></i></a>
+    <a class="btn mx-5" asp-controller="Estoque" asp-action="Create"><i class="bi bi-box-seam fs-3 ">+</i></a>
 
 </div>
-<hr />
 
 <div class="container">
 
     <table id="Estoque" class="table table-dark table-striped mt-5">
-
-        <br />
         <thead>
             <tr>
                 <th scope="col">Nome</th>
@@ -41,12 +38,13 @@
                         <td scope="row">@produtos.Fornecedor_Id</td>
                         <td scope="row">@produtos.Codigo</td>
                         <td>
-                            <!--EDITAR-->
-                            <a class="btn text-white mx-2" asp-action="Edit"
-                               asp-route-id="@produtos.Id"><i class="bi bi-pencil"></i></a>
+
                             <!--EXCLUIR-->
-                            <a class="btn text-white mx-2" asp-action="Delete"
-                               asp-route-id="@produtos.Id"><i class="bi bi-x-lg"></i></a>
+                            <a class="btn text-white mx-2 float-end" asp-action="Delete"
+                               asp-route-id="@produtos.Id"><i class="bi bi-trash-fill"></i></a>
+                            <!--EDITAR-->
+                            <a class="btn text-white mx-2 float-end" asp-action="Edit"
+                               asp-route-id="@produtos.Id"><i class="bi bi-pencil"></i></a>
                         </td>
                     </tr>
                 }

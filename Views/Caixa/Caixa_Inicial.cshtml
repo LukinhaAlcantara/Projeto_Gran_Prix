@@ -1,0 +1,65 @@
+﻿@model Projeto_Gran_Prix.Models.CaixaFake
+
+@{
+    ViewData["Title"] = "Create";
+}
+<hr />
+<h1 class="text-center">Caixa Inicial</h1>
+<hr />
+
+<br />
+
+<div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-xl-2 col-sm-2">
+            <!--LADO ESQUERDO-->
+        </div>
+        <div class="col-xl-8 col-sm-8 bg-dark p-5" id="teste">
+            <!--CENTRO-->
+            <form asp-controller="Caixa" asp-action="Caixa_Inicial">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-12 form-group text-white">
+                    <label asp-for="Tipo" class="control-label"></label>
+                    <select class="form-select" aria-label="Default select example" asp-for="Tipo">
+                        <option value="Caixa_Inicial">Caixa Inicial</option>
+                        <option value="Entrada">Entrada</option>
+                        <option value="Saida">Saida</option>
+                    </select>
+                    <span asp-validation-for="Tipo" class="text-danger"></span>
+                </div>
+
+                <div class="col-12 form-group text-white">
+                    <label asp-for="Valor" class="control-label"></label>
+                    <input asp-for="Valor" class="form-control" />
+                    <span asp-validation-for="Valor" class="text-danger"></span>
+                </div>
+
+                <div class="col-12 form-group text-white">
+                    <label asp-for="Data" class="control-label"></label>
+                    <input asp-for="Data" class="form-control" type="date"/>
+                    <span asp-validation-for="Data" class="text-danger"></span>
+                </div>
+                <div class="d-flex gap-3 mt-5">
+                    <input type="submit" class="btn btn-outline-success w-50" placeholder="Adicionar" />
+                    <a class="btn btn-outline-danger w-50" asp-action="Index">Back</a>
+
+                </div>
+            </form>
+        </div>
+        <div class="col-xl-2 col-sm-2">
+            <!--LADO DIREITO-->
+        </div>
+    </div>
+</div>
+
+<style>
+    #teste {
+        opacity: 0.8;
+        border-radius: 15px;
+    }
+</style>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

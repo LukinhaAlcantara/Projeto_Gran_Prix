@@ -10,19 +10,19 @@
 
 <br />
 
-<div class="container ms-5 mt-5">
-    <div class="row gap-4 mt-5">
+<div class="container">
+    <div class="row gap-4 ms-5">
         <!--CAIXA INICIAL-->
-        <button class="btn btn-1 col-5 fs-4">Caixa Inicial  <i class="bi bi-wallet2"></i></button>
+        <a class="btn btn-1 col-5 fs-4 botao" asp-controller="Caixa" asp-action="Caixa_inicial" id="btn-1"> Caixa Inicial  <i class="bi bi-wallet2"></i></a>
 
         <!--PESQUISAR-->
-        <button class="btn btn-2 col-5 fs-4">Pesquisar  <i class="bi bi-search"></i></button>
+        <a class="btn btn-2 col-5 fs-4 botao" asp-controller="Caixa" asp-action="Pesquisar" id="btn-2"> Pesquisar  <i class="bi bi-search"></i></a>
 
         <!--ENTRADA-->
-        <button class="btn btn-3 col-5 fs-4">Entrada  <i class="bi bi-cash-coin"></i></button>
+        <a class="btn btn-3 col-5 fs-4 botao" asp-controller="Caixa" asp-action="Entrada" id="btn-3"> Entrada  <i class="bi bi-cash-coin"></i></a>
 
         <!--SAIDA-->
-        <button class="btn btn-4 col-5 fs-4">Saida  <i class="bi bi-indent"></i></button>
+        <a class="btn btn-4 col-5 fs-4 botao" asp-controller="Caixa" asp-action="Saida" id="btn-4"> Saida  <i class="bi bi-indent"></i></a>
 
 
        @* <a class=" btn text-black p-2 col-5 mt-1" id="btn_1">
@@ -43,7 +43,7 @@
 
 <style>
     /* General button style */
-    .btn {
+    .botao {
         border: none;
         font-family: 'Lato';
         font-size: inherit;
@@ -63,7 +63,7 @@
         transition: all 0.3s;
     }
 
-        .btn:after {
+        .botao:after {
             content: '';
             position: absolute;
             z-index: -1;
@@ -73,7 +73,7 @@
         }
 
         /* Pseudo elements for icons */
-        .btn:before {
+        .botao:before {
             font-family: 'FontAwesome';
             speak: none;
             font-style: normal;
@@ -87,33 +87,33 @@
 
 
     /* Icon separator */
-    .btn-sep {
+    .botao-sep {
         padding: 25px 60px 25px 120px;
     }
 
-        .btn-sep:before {
+        .botao-sep:before {
             background: rgba(0,0,0,0.15);
         }
 
     /* Button 1 */
-    .btn-1 {
+    #btn-1 {
         background: #3498db;
         color: #fff;
     }
 
-        .btn-1:hover {
+        #btn-1:hover {
             transform: scale(1.1);
             transition: all 0.5s;
             transition-delay: 0.1s;
             background: #2980b9;
         }
 
-        .btn-1:active {
+        #btn-1:active {
             background: #2980b9;
             top: 2px;
         }
 
-        .btn-1:before {
+        #btn-1:before {
             position: absolute;
             height: 100%;
             left: 0;
@@ -124,24 +124,24 @@
         }
 
     /* Button 2 */
-    .btn-2 {
+    #btn-2 {
         background: #34495e;
         color: #fff;
     }
 
-        .btn-2:hover {
+        #btn-2:hover {
             transform: scale(1.1);
             transition: all 0.5s;
             transition-delay: 0.1s;
             background: #2c3e50;
         }
 
-        .btn-2:active {
+        #btn-2:active {
             background: #2c3e50;
             top: 2px;
         }
 
-        .btn-2:before {
+        #btn-2:before {
             position: absolute;
             height: 100%;
             left: 0;
@@ -152,24 +152,24 @@
         }
 
     /* Button 3 */
-    .btn-3 {
+    #btn-3 {
         background: #2ecc71;
         color: #fff;
     }
 
-        .btn-3:hover {
+        #btn-3:hover {
             transform: scale(1.1);
             transition: all 0.5s;
             transition-delay: 0.1s;
             background: #27ae60;
         }
 
-        .btn-3:active {
+        #btn-3:active {
             background: #27ae60;
             top: 2px;
         }
 
-        .btn-3:before {
+        #btn-3:before {
             position: absolute;
             height: 100%;
             left: 0;
@@ -180,24 +180,24 @@
         }
 
     /* Button 4 */
-    .btn-4 {
+    #btn-4 {
         background: #e74c3c;
         color: #fff;
     }
 
-        .btn-4:hover {
+        #btn-4:hover {
             transform: scale(1.1);
             transition: all 0.5s;
             transition-delay: 0.1s;
             background: #c0392b;
         }
 
-        .btn-4:active {
+        #btn-4:active {
             background: #c0392b;
             top: 2px;
         }
 
-        .btn-4:before {
+        #btn-4:before {
             position: absolute;
             height: 100%;
             left: 0;
