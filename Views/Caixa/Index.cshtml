@@ -4,50 +4,227 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<hr />
+<h1 class="text-center">Caixa</h1>
+<hr />
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Entrada)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Saida)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Data)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Pedido_Id)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Entrada)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Saida)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Data)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Pedido_Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<br />
+
+<div class="container ms-5 mt-5">
+    <div class="row gap-4 mt-5">
+        <!--CAIXA INICIAL-->
+        <button class="btn btn-1 col-5 fs-4">Caixa Inicial  <i class="bi bi-wallet2"></i></button>
+
+        <!--PESQUISAR-->
+        <button class="btn btn-2 col-5 fs-4">Pesquisar  <i class="bi bi-search"></i></button>
+
+        <!--ENTRADA-->
+        <button class="btn btn-3 col-5 fs-4">Entrada  <i class="bi bi-cash-coin"></i></button>
+
+        <!--SAIDA-->
+        <button class="btn btn-4 col-5 fs-4">Saida  <i class="bi bi-indent"></i></button>
+
+
+       @* <a class=" btn text-black p-2 col-5 mt-1" id="btn_1">
+            <p class="fs-2">Caixa Inicial</p>
+        </a>
+        <a class=" btn btn-outline-secondary text-black p-2 col-5 mt-1" id="btn_2">
+            <p class="fs-2">Pesquisar</p>
+        </a>
+        <a class=" btn btn-outline-success text-black p-2 col-5 mt-1">
+            <p class="fs-2">Entrada</p>
+        </a>
+        <a class=" btn btn-outline-danger text-black p-2 col-5 mt-1">
+            <p class="fs-2">Saida</p>
+        </a>*@
+    </div>
+</div>
+
+
+<style>
+    /* General button style */
+    .btn {
+        border: none;
+        font-family: 'Lato';
+        font-size: inherit;
+        color: inherit;
+        background: none;
+        cursor: pointer;
+        padding: 25px 80px;
+        display: inline-block;
+        margin: 15px 30px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 700;
+        outline: none;
+        position: relative;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+        .btn:after {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            -webkit-transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        /* Pseudo elements for icons */
+        .btn:before {
+            font-family: 'FontAwesome';
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+        }
+
+
+    /* Icon separator */
+    .btn-sep {
+        padding: 25px 60px 25px 120px;
+    }
+
+        .btn-sep:before {
+            background: rgba(0,0,0,0.15);
+        }
+
+    /* Button 1 */
+    .btn-1 {
+        background: #3498db;
+        color: #fff;
+    }
+
+        .btn-1:hover {
+            transform: scale(1.1);
+            transition: all 0.5s;
+            transition-delay: 0.1s;
+            background: #2980b9;
+        }
+
+        .btn-1:active {
+            background: #2980b9;
+            top: 2px;
+        }
+
+        .btn-1:before {
+            position: absolute;
+            height: 100%;
+            left: 0;
+            top: 0;
+            line-height: 3;
+            font-size: 140%;
+            width: 60px;
+        }
+
+    /* Button 2 */
+    .btn-2 {
+        background: #34495e;
+        color: #fff;
+    }
+
+        .btn-2:hover {
+            transform: scale(1.1);
+            transition: all 0.5s;
+            transition-delay: 0.1s;
+            background: #2c3e50;
+        }
+
+        .btn-2:active {
+            background: #2c3e50;
+            top: 2px;
+        }
+
+        .btn-2:before {
+            position: absolute;
+            height: 100%;
+            left: 0;
+            top: 0;
+            line-height: 3;
+            font-size: 140%;
+            width: 60px;
+        }
+
+    /* Button 3 */
+    .btn-3 {
+        background: #2ecc71;
+        color: #fff;
+    }
+
+        .btn-3:hover {
+            transform: scale(1.1);
+            transition: all 0.5s;
+            transition-delay: 0.1s;
+            background: #27ae60;
+        }
+
+        .btn-3:active {
+            background: #27ae60;
+            top: 2px;
+        }
+
+        .btn-3:before {
+            position: absolute;
+            height: 100%;
+            left: 0;
+            top: 0;
+            line-height: 3;
+            font-size: 140%;
+            width: 60px;
+        }
+
+    /* Button 4 */
+    .btn-4 {
+        background: #e74c3c;
+        color: #fff;
+    }
+
+        .btn-4:hover {
+            transform: scale(1.1);
+            transition: all 0.5s;
+            transition-delay: 0.1s;
+            background: #c0392b;
+        }
+
+        .btn-4:active {
+            background: #c0392b;
+            top: 2px;
+        }
+
+        .btn-4:before {
+            position: absolute;
+            height: 100%;
+            left: 0;
+            top: 0;
+            line-height: 3;
+            font-size: 140%;
+            width: 60px;
+        }
+
+    
+    /*#btn_1 
+    {
+        background: rgb(2,0,36);
+        border-radius:25px;
+    }
+
+    #btn_1:hover
+    {
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+        transform: scale(1.1);
+        transition: all 0.5s;
+        transition-delay: 0.1s;
+    }
+
+    #btn_2
+    {
+        background: rgb(164,169,198);
+        background: radial-gradient(circle, rgba(164,169,198,1) 0%, rgba(40,38,38,1) 100%);
+    }*/
+</style>
