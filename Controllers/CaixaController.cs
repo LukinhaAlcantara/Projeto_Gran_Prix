@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Gran_Prix.Models;
 using Projeto_Gran_Prix.Data;
+using Projeto_Gran_Prix.Models;
 
 namespace Projeto_Gran_Prix.Controllers
 {
@@ -20,11 +21,9 @@ namespace Projeto_Gran_Prix.Controllers
         }
 
         // GET: Caixa
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-              return _context.Caixa != null ? 
-                          View(await _context.Caixa.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.CaixaModel'  is null.");
+             return View();
         }
 
         // GET: Caixa/Details/5
@@ -46,7 +45,7 @@ namespace Projeto_Gran_Prix.Controllers
         }
 
         // GET: Caixa/Create
-        public IActionResult Create()
+        public IActionResult Caixa_Inicial()
         {
             return View();
         }
@@ -55,16 +54,20 @@ namespace Projeto_Gran_Prix.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Entrada,Saida,Data,Pedido_Id")] CaixaModel caixaModel)
+        public IActionResult Caixa_Inicial(CaixaFake caixamodel)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(caixaModel);
-                await _context.SaveChangesAsync();
+                var novo = new CaixaModel();
+                novo.Tipo = caixamodel.Tipo;
+                novo.Valor = Convert.ToDouble(caixamodel.Valor);
+                novo.Data = caixamodel.Data;
+
+                _context.Add(novo);
+                _context.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }
-            return View(caixaModel);
+            return View(caixamodel);
         }
 
         // GET: Caixa/Edit/5
@@ -158,6 +161,58 @@ namespace Projeto_Gran_Prix.Controllers
         private bool CaixaModelExists(int id)
         {
           return (_context.Caixa?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        public IActionResult Entrada()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Entrada([Bind("Id,Tipo,Valor,Data")] CaixaFake caixamodel)
+        {
+            if (ModelState.IsValid)
+            {
+                var nuevo = new CaixaModel();
+                nuevo.Tipo = caixamodel.Tipo;
+                nuevo.Valor = Convert.ToDouble(caixamodel.Valor);
+                nuevo.Data = caixamodel.Data;
+
+                _context.Add(nuevo);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(caixamodel);
+        }
+
+        public IActionResult Saida()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Saida([Bind("Id,Tipo,Valor,Data")] CaixaFake caixamodel)
+        {
+            if (ModelState.IsValid)
+            {
+                var caixa = new CaixaModel();
+                caixa.Tipo = caixamodel.Tipo;
+                caixa.Valor = Convert.ToDouble(caixamodel.Valor);
+                caixa.Data = caixamodel.Data;
+
+                _context.Add(caixa);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(caixamodel);
+        }
+
+        public IActionResult Pesquisar()
+        {
+            IEnumerable<CaixaModel>? caixa = _context.Caixa;
+            return View(caixa);
         }
     }
 }
