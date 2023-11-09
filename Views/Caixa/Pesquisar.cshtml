@@ -1,0 +1,52 @@
+﻿@using Gran_Prix.Models;
+@model IEnumerable<CaixaModel>
+
+@{
+    ViewData["Title"] = "Pesquisar";
+}
+
+<hr />
+<h1 class="text-center">Pesquisar</h1>
+<hr />
+
+<br />
+
+<div class="container">
+
+    <table id="Caixa" class="table table-dark table-striped mt-5">
+
+        <br />
+        <thead>
+            <tr>
+                <th scope="col">Tipo</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Data</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+
+                @foreach (var Caixa in Model)
+
+                {
+                    <tr>
+                        <td scope="row">@Caixa.Tipo</td>
+                        <td scope="row">@Caixa.Valor.ToString("C")</td>
+                        <td scope="row">@Caixa.Data</td>
+                        <td>
+                            <!--EXCLUIR-->
+                            <a class="btn text-white mx-2 float-end" asp-action="Delete"
+                               asp-route-id="@Caixa.Id"><i class="bi bi-trash-fill"></i></a>
+                            <!--EDITAR-->
+                            <a class="btn text-white mx-2 float-end" asp-action="Edit"
+                               asp-route-id="@Caixa.Id"><i class="bi bi-pencil"></i></a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
